@@ -1,5 +1,4 @@
 import { inject,injectable } from "tsyringe"
-
 import { ICategoryRepository } from "../../repositories/ICategoriesRepository"
 
 export interface IRequest{

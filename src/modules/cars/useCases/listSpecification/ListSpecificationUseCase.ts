@@ -5,7 +5,7 @@ import { injectable, inject } from "tsyringe"
 @injectable()
 export class ListSpecificationUseCase{
     constructor(
-        @inject("SpeficicationRepository")
+        @inject("SpecificationRepository")
         private specificationRepository: ISpecificationRepository
     ){}
 
