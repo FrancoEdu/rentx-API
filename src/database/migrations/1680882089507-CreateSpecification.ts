@@ -1,16 +1,16 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateCategory1680880285802 implements MigrationInterface {
+export class CreateSpecification1680882089507 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "categories",
+                name: "specification",
                 columns: [
                     {
                         name: "id",
                         type: "uuid",
-                        isPrimary: true
+                        isPrimary: true,
                     },{
                         name: "name",
                         type: "varchar",
@@ -22,13 +22,13 @@ export class CreateCategory1680880285802 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()"
                     },
-                ],
+                ]
             })
-        );
+        )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("categories")
+        await queryRunner.dropTable("specification")
     }
 
 }

@@ -1,14 +1,19 @@
 import fs from 'fs'
 import {parse} from 'csv-parse'
 import { ICategoryRepository } from '../../repositories/ICategoriesRepository'
+import {inject, injectable} from "tsyringe"
 
 interface IImportCategory{
     name: string
     description: string
 }
 
+@injectable()
 export class ImportCategoryUseCase{
-    constructor(private categoryRepository: ICategoryRepository){}
+    constructor(
+        @inject("CategoriesRepositories")
+        private categoryRepository: ICategoryRepository
+    ){}
 
     loadCategories(file: Express.Multer.File): Promise<IImportCategory[]>{
         return new Promise((resolve, reject) => {
@@ -35,13 +40,13 @@ export class ImportCategoryUseCase{
 
     async execute(file: Express.Multer.File): Promise<void>{
         const categories = await this.loadCategories(file)
-        categories.map((category) => {
+        categories.map(async (category) => {
             const {name, description} = category
 
-            const categoryAlreadyExists = this.categoryRepository.findByName(name)
+            const categoryAlreadyExists = await this.categoryRepository.findByName(name)
 
             if(!categoryAlreadyExists){
-                this.categoryRepository.create({name, description})
+                await this.categoryRepository.create({name, description})
             }
         })
     }
