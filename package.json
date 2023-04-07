@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js -d src/database/data-source.ts"
+  "typeorm" : "ts-node-dev ./node_modules/typeorm/cli"
   },
   "dependencies": {
     "csv-parse": "^5.3.6",
@@ -16,7 +16,7 @@
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.6.2",
     "ts-node-dev": "^2.0.0",
-    "typeorm": "^0.3.12",
+    "typeorm": "0.2.45",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
