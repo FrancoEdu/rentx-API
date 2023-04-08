@@ -72,7 +72,28 @@
                     }
                 }
             }
-        }, 
+        },
+        "/categories/imports":{
+          "post":{
+                "tags": ["Category"],
+                "summary": "Upload a new category from a file .csv",
+                "description": "Upload a new category from a file .csv",
+                "requestBody":{
+                    "content":{
+                        "application/octet-stream":{
+                            "schema":{
+                                "type":"string"
+                            }
+                        } 
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    } 
+                } 
+            }
+        },
         "/specifications":{
             "post": {
                 "tags": ["Specification"],
