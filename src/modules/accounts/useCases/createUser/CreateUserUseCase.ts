@@ -12,15 +12,15 @@ export class CreateUserUseCase{
 
     async execute({name, email,password,driver_license}:ICreateUser):Promise<void>{
         
-        const userAlrearyExists = this.usersRepository.findUserEmail(email)
+        const userAlrearyExists = await this.usersRepository.findUserEmail(email)
 
-        if(userAlrearyExists){
+        if(!userAlrearyExists){
             throw new Error("User already exists !!")
         }
         
         const passwordHash = await hash(password, 8)
 
-        await this.usersRepository.create({
+        this.usersRepository.create({
             name,
             email,
             password: passwordHash,
