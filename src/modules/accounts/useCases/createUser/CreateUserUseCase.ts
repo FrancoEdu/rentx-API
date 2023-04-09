@@ -14,7 +14,7 @@ export class CreateUserUseCase{
         
         const userAlrearyExists = await this.usersRepository.findUserEmail(email)
 
-        if(!userAlrearyExists){
+        if(userAlrearyExists){
             throw new Error("User already exists !!")
         }
         
