@@ -1,7 +1,8 @@
-import {MigrationInterface, QueryRunner, TableColumn} from "typeorm";
+import { MigrationInterface, QueryRunner, TableColumn } from "typeorm";
 
-export class AlterUserDeleteUsername1680985748436 implements MigrationInterface {
-
+export class AlterUserDeleteUsername1680985748436
+    implements MigrationInterface
+{
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropColumn("users", "username");
     }
@@ -10,11 +11,10 @@ export class AlterUserDeleteUsername1680985748436 implements MigrationInterface 
         await queryRunner.addColumn(
             "users",
             new TableColumn({
-                name:"username",
+                name: "username",
                 type: "varchar",
-                isUnique: true
+                isUnique: true,
             })
-        )
+        );
     }
-
 }

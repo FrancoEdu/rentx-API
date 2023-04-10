@@ -1,11 +1,11 @@
-import {container} from 'tsyringe'
-import { ICategoryRepository } from '../../modules/cars/repositories/ICategoriesRepository'
-import { CategoriesRepositories } from '../../modules/cars/repositories/implementations/CategoryRepository'
-import { ISpecificationRepository } from '../../modules/cars/repositories/ISpecificationRepository';
-import { SpecificationRepository } from '../../modules/cars/repositories/implementations/SpecificationRepository';
-import { IUserRepository } from '../../modules/accounts/repositories/IUsersRepository';
-import { UsersRepository } from '../../modules/accounts/repositories/implementations/UsersRepository';
+import { container } from "tsyringe";
 
+import { UsersRepository } from "../../modules/accounts/repositories/implementations/UsersRepository";
+import { IUserRepository } from "../../modules/accounts/repositories/IUsersRepository";
+import { ICategoryRepository } from "../../modules/cars/repositories/ICategoriesRepository";
+import { CategoriesRepositories } from "../../modules/cars/repositories/implementations/CategoryRepository";
+import { SpecificationRepository } from "../../modules/cars/repositories/implementations/SpecificationRepository";
+import { ISpecificationRepository } from "../../modules/cars/repositories/ISpecificationRepository";
 
 container.registerSingleton<ICategoryRepository>(
     "CategoriesRepositories",
@@ -20,4 +20,4 @@ container.registerSingleton<ISpecificationRepository>(
 container.registerSingleton<IUserRepository>(
     "UsersRepository",
     UsersRepository
-)
+);

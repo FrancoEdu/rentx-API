@@ -1,14 +1,15 @@
-import { Router } from 'express'
-import { categoriesRoutes } from './categories.routes'
-import { specificationRoutes } from './specification.routes'
-import { usersRouter } from './users.routes'
-import { authenticateRoutes } from './authenticate.routes'
+import { Router } from "express";
 
-const router = Router()
+import { authenticateRoutes } from "./authenticate.routes";
+import { categoriesRoutes } from "./categories.routes";
+import { specificationRoutes } from "./specification.routes";
+import { usersRouter } from "./users.routes";
 
-router.use("/categories", categoriesRoutes)
-router.use("/specifications", specificationRoutes)
-router.use("/users", usersRouter)
-router.use(authenticateRoutes)
+const router = Router();
 
-export { router }
+router.use("/categories", categoriesRoutes);
+router.use("/specifications", specificationRoutes);
+router.use("/users", usersRouter);
+router.use(authenticateRoutes);
+
+export { router };
