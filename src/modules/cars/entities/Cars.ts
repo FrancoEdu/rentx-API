@@ -22,9 +22,6 @@ export class Cars {
     available: boolean;
 
     @Column()
-    description: string;
-
-    @Column()
     daily_rate: number;
 
     @Column()
