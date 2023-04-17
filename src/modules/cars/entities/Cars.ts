@@ -1,22 +1,55 @@
-import {v4 as uuidV4} from "uuid"
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    JoinColumn,
+    ManyToOne,
+    PrimaryColumn,
+} from "typeorm";
+import { v4 as uuidV4 } from "uuid";
 
-export class Cars{
+import { Category } from "./Category";
+
+@Entity("cars")
+export class Cars {
+    @PrimaryColumn()
     id: string;
-    name: string;
-    available: boolean;
-    description: string;
-    daily_rate: number;
-    license_plate: string;
-    fine_amount: number;
-    brand: string;
-    category_id: string;
-    created_at: Date
 
-    constructor(){
-        if(!this.id){
+    @Column()
+    name: string;
+
+    @Column()
+    available: boolean;
+
+    @Column()
+    description: string;
+
+    @Column()
+    daily_rate: number;
+
+    @Column()
+    license_plate: string;
+
+    @Column()
+    fine_amount: number;
+
+    @Column()
+    brand: string;
+
+    @ManyToOne(() => Category)
+    @JoinColumn({ name: "category_id" })
+    category: Category;
+
+    @Column()
+    category_id: string;
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    constructor() {
+        if (!this.id) {
             this.id = uuidV4();
             this.available = true;
-            this.created_at =  new Date()
         }
     }
 }
