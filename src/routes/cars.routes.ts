@@ -5,5 +5,4 @@ import { CreateCarController } from "../modules/cars/useCases/createCar/CreateCa
 export const carsRoutes = Router();
 
 const createCarController = new CreateCarController();
-
 carsRoutes.post("/", createCarController.handle);

@@ -5,15 +5,15 @@ import swaggerUi from "swagger-ui-express";
 import "reflect-metadata";
 import "./shared/container";
 
+import createConnection from "./database";
 import { router } from "./routes";
 // eslint-disable-next-line import-helpers/order-imports
 import swaggerFile from "./swagger.json";
 
-import "./database";
-
 // eslint-disable-next-line import-helpers/order-imports
 import { AppError } from "./error/AppError";
 
+createConnection();
 const app = express();
 app.use(express.json());
 
