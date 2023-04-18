@@ -35,4 +35,8 @@ export class CarsRepository implements ICarsRepository {
         const licensePlate = await this.repository.findOne({ license_plate });
         return licensePlate;
     }
+
+    
+    async findAvailable(): Promise<Cars[]> {
+    }
 }
