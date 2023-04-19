@@ -52,7 +52,7 @@ export class CarsRepository implements ICarsRepository {
             carsQuery.andWhere("c.name = :name", { name });
         }
         if (category_id) {
-            carsQuery.andWhere("c.category_ig = :category_id", { category_id });
+            carsQuery.andWhere("c.category_id = :category_id", { category_id });
         }
 
         const cars = await carsQuery.getMany();
