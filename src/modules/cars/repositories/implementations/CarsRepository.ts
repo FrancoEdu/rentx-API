@@ -43,7 +43,7 @@ export class CarsRepository implements ICarsRepository {
     ): Promise<Cars[]> {
         const carsQuery = await this.repository
             .createQueryBuilder("c")
-            .where("avalailable = :available", { available: true });
+            .where("available = :available", { available: true });
 
         if (brand) {
             carsQuery.andWhere("c.brand = :brand", { brand });
