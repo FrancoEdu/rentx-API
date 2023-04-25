@@ -1,3 +1,5 @@
+import { Specification } from "../entities/Specification";
+
 export interface ICreateCarDTO {
     name: string;
     daily_rate: number;
@@ -5,4 +7,5 @@ export interface ICreateCarDTO {
     fine_amount: number;
     brand: string;
     category_id: string;
+    specifications?: Specification[];
 }

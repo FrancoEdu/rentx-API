@@ -8,5 +8,6 @@ export interface ICreateSpecification {
 export interface ISpecificationRepository {
     create({ name, description }: ICreateSpecification): Promise<void>;
     findByName(name: string): Promise<Specification>;
+    findById(specification_id: string[]): Promise<Specification[]>;
     list(): Promise<Specification[]>;
 }
