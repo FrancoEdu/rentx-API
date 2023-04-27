@@ -28,7 +28,7 @@ describe("Create car specification", () => {
         }).rejects.toBeInstanceOf(AppError);
     });
     it("should be able to add new specification to the car", async () => {
-        await carsRepositoryInMemory.create({
+        const car = await carsRepositoryInMemory.create({
             name: "Camaro ss",
             daily_rate: 100,
             license_plate: "ABC-1234",
@@ -37,11 +37,15 @@ describe("Create car specification", () => {
             category_id: "Esportivo",
         });
 
-        const car_id = "1234";
-        const specifications_id = ["576757"];
+        const specification = await specificationsRepositoryInMemory.create({
+            description: "teste",
+            name: "teste",
+        });
+
+        const specifications_id = [specification.id];
 
         await createCarSpecificationUseCase.execute({
-            car_id,
+            car_id: car.id,
             specifications_id,
         });
     });
