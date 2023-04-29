@@ -37,7 +37,8 @@ export class SpecificationRepository implements ISpecificationRepository {
         return specification;
     }
 
-    findById(specification_id: string[]): Promise<Specification[]> {
-        throw new Error("Method not implemented.");
+    async findById(specification_id: string[]): Promise<Specification[]> {
+        const specification = this.repository.findByIds(specification_id);
+        return specification;
     }
 }
